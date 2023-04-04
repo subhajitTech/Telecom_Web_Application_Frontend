@@ -1,0 +1,25 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <nz-table #basicTable [nzData]="subscribedBroadbands" [nzPageSize]="20" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">Broadband Name</th>
+                <th style="font-weight: bolder; color: #003973;">Phone Number</th>
+                <th style="font-weight: bolder; color: #003973;">Broadband Cost</th>
+                <th style="font-weight: bolder; color: #003973;">Broadband Duration</th>
+                <th style="font-weight: bolder; color: #003973;">Created Date</th>
+                <th style="font-weight: bolder; color: #003973;">Expired At</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let broadband of basicTable.data">
+                <td style="font-weight:600 ;">{{broadband.broadbandName}}</td>
+                <td style="font-weight:600 ;">{{broadband.phoneNumber}}</td>
+                <td style="font-weight:600 ;">{{broadband.broadbandCost}}</td>
+                <td>{{broadband.broadbandDuration}} Days</td>
+                <td>{{broadband.createdDate | date: 'dd/MM/yyyy'}}</td>
+                <td>{{broadband.expireAt | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>

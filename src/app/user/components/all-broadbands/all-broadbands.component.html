@@ -1,0 +1,24 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <nz-table #basicTable [nzData]="broadBands" [nzPageSize]="20" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">Name</th>
+                <th style="font-weight: bolder; color: #003973;">Cost</th>
+                <th style="font-weight: bolder; color: #003973;">Duration</th>
+                <th style="font-weight: bolder; color: #003973;">Created date</th>
+                <th style="font-weight: bolder; color: #003973;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let broadband of basicTable.data">
+                <td style="font-weight:600 ;">{{broadband.name}}</td>
+                <td style="font-weight:600 ;">{{broadband.cost}}</td>
+                <td>{{broadband.duration}} Days</td>
+                <td>{{broadband.creationDate | date: 'dd/MM/yyyy'}}</td>
+                <td><button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
+                        routerLink="/user/subscribe_broadband/{{broadband.id}}" nzDanger>Subscribe Broadband</button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>

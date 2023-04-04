@@ -1,0 +1,25 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <nz-table #basicTable [nzData]="subscribedPlans" [nzPageSize]="20" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">Plan Name</th>
+                <th style="font-weight: bolder; color: #003973;">Phone Number</th>
+                <th style="font-weight: bolder; color: #003973;">Plan Cost</th>
+                <th style="font-weight: bolder; color: #003973;">Plan Duration</th>
+                <th style="font-weight: bolder; color: #003973;">Created Date</th>
+                <th style="font-weight: bolder; color: #003973;">Expired At</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let plan of basicTable.data">
+                <td style="font-weight:600 ;">{{plan.planName}}</td>
+                <td style="font-weight:600 ;">{{plan.phoneNumber}}</td>
+                <td style="font-weight:600 ;">{{plan.planCost}}</td>
+                <td>{{plan.duration}} Days</td>
+                <td>{{plan.createdDate | date: 'dd/MM/yyyy'}}</td>
+                <td>{{plan.expireAt | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>

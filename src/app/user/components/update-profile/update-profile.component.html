@@ -1,0 +1,45 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <div class="parent">
+        <div class="child">
+            <div nz-row class="imgDiv">
+                <div nz-col nzSpan="24"><img img width="50%" style="margin-left: 25%;" src="../../assets/stl1.png" />
+                </div>
+            </div>
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+                        <input nz-input placeholder="E-mail" formControlName="email" id="email" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzSm]="14" [nzXs]="24"
+                        nzErrorTip="The input is not valid Phone Number!">
+                        <input nz-input placeholder="Phone Number" formControlName="phoneNumber" id="phoneNumber" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzSm]="14" [nzXs]="24" [nzErrorTip]="userErrorTpl">
+                        <input nz-input placeholder="Name" id="username" formControlName="name" />
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Please input your username!
+                            </ng-container>
+
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+
+                <!-- <nz-form-item nz-row class="register-area">
+          <nz-form-control [nzSpan]="14" [nzOffset]="6">
+            <button nz-button nzType="primary">Register</button>
+          </nz-form-control>
+        </nz-form-item> -->
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Update</button>
+
+            </form>
+        </div>
+    </div>
+</nz-spin>
